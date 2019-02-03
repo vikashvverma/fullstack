@@ -1,28 +1,27 @@
-# brainwaves-fullstack
+# fullstack
 
-This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 4.2.3.
-
-## Getting Started
+> Access the app here: [http://brainwaves.programminggeek.in/](http://brainwaves.programminggeek.in/)
 
 ### Prerequisites
 
 - [Git](https://git-scm.com/)
 - [Node.js and npm](nodejs.org) Node >= 4.x.x, npm >= 2.x.x
-- [Gulp](http://gulpjs.com/) (`npm install --global gulp`)
 - [MongoDB](https://www.mongodb.org/) - Keep a running daemon with `mongod`
 
-### Developing
+
+
+
+### Start the App
 
 1. Run `npm install` to install server dependencies.
 
-2. Run `mongod` in a separate shell to keep an instance of the MongoDB Daemon running
+2. Run `mongod` in a separate shell to keep an instance of the MongoDB Daemon running or ignore if you want to connect to the cloud.
 
-3. Run `gulp serve` to start the development server. It should automatically open the client in your browser when ready.
+3. Update the config mongodb uri in `server/config/environment/development.js` or `server/config/environment/index.js`.
 
-## Build & development
+4. Set `seedDB` to true in the config depending  `server/config/environment/development.js` or `server/config/environment/index.js`.
 
-Run `gulp build` for building and `gulp serve` for preview.
+5. The default mongo `uri` is connected to `cloud`. Do not change it to connect to cloud mongodb.
 
-## Testing
+6. Run `npm start` to start the development server. Access the app at http://localhost:3000/
 
-Running `npm test` will run the unit tests with karma.
