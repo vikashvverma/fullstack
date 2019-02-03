@@ -1,0 +1,21 @@
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="width: 100%;">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Top 5 Stocks</h2>
+    </div>
+    <div class="mdl-card__title" ng-if="$ctrl.tops.length===0">
+      <div class="mdl-spinner mdl-js-spinner is-active" style="left: calc(50% - 14px);"></div>
+    </div>
+    <div class="mdl-card__actions mdl-card--border" ng-repeat="top in $ctrl.tops">
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="stock/{{top.symbol}}">
+        {{top.symbol}}
+      </a>
+    </div>
+    <div class="mdl-card__menu">
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">share</i>
+      </button>
+    </div>
+
+  </div>
+</section>

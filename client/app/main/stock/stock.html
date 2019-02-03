@@ -1,0 +1,64 @@
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="width: 100%; min-height: auto !important;">
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+         style="width: 90%; margin-left: calc(10%/2);margin-top: 10px; margin-bottom: 10px;">
+      <input class="mdl-textfield__input" type="text" id="sample3" ng-keyup="$ctrl.log($event.target.value)"  ng-model="$ctrl.$state.params.id">
+      <label class="mdl-textfield__label" for="sample3">Search by symbol...</label>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+         style="width: 90%; margin-left: calc(10%/2);margin-top: 10px; margin-bottom: 10px;">
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1" style="padding-right: 20px;">
+        <input type="radio" id="option-1" class="mdl-radio__button" name="options" ng-model="$ctrl.view"
+               ng-click="$ctrl.update('graph', $event.target.value)">
+        <span class="mdl-radio__label">Graph</span>
+      </label>
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+        <input type="radio" id="option-2" class="mdl-radio__button" name="options" ng-model="$ctrl.view"
+               ng-click="$ctrl.update('table', $event.target.value)" ng-checked="true">
+        <span class="mdl-radio__label">Table</span>
+      </label>
+    </div>
+  </div>
+</section>
+
+<div id="container" ng-show="$ctrl.selectedView=='graph'">
+
+</div>
+
+<table class="mdl-data-table mdl-layout--fixed-header mdl-js-data-table mdl-shadow--2dp"
+       style="width: 100%;" ng-show="$ctrl.selectedView=='table'">
+  <thead>
+  <tr>
+    <th class="mdl-data-table__cell--non-numeric">Date</th>
+    <th>Symbol</th>
+    <th>Open</th>
+    <th>Close</th>
+    <th>Low</th>
+    <th>High</th>
+    <th>Volume</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="stock in $ctrl.stocks">
+    <td class="mdl-data-table__cell--non-numeric">{{stock.date | date}}</td>
+    <td>{{stock.symbol}}</td>
+    <td>{{stock.open}}</td>
+    <td>{{stock.close}}</td>
+    <td>{{stock.low}}</td>
+    <td>{{stock.high}}</td>
+    <td>{{stock.volume}}</td>
+  </tr>
+  <!--<tr>-->
+  <!--<td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>-->
+  <!--<td>50</td>-->
+  <!--<td>$1.25</td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>-->
+  <!--<td>10</td>-->
+  <!--<td>$2.35</td>-->
+  <!--</tr>-->
+  </tbody>
+</table>
